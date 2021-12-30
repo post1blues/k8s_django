@@ -12,8 +12,11 @@ spec:
             - name: django-service
               image: django_app:latest
               imagePullPolicy: Never
+              envFrom:
+                - configMapRef:
+                    name: django-config
               command:
                 - python
-                - ./manage.py
+                - manage.py
                 - clearsessions
           restartPolicy: OnFailure
