@@ -41,7 +41,7 @@ $ docker-compose run web ./manage.py createsuperuser
 5. Внести в django-config переменные среды - `DEBUG`, `DATABASE_URL`, `ALLOWED_HOSTS`, `SECRET_KEY`
 6. Добавить Docker-образ в minikube командой `minikube image build -t django_app backend_main_django`
 7. Создать ConfigMap командой `kubectl apply -f django-config.yaml`
-8. Создать ClusterIP и Deployment командой `kubectl apply -f django-service.yaml`
+8. Создать сервисы командой `kubectl apply -f django-service.yaml`
 9. Создать Ingress для сервиса командой `kubectl apply -f django-ingress.yaml`
 10. Выполнить миграции через `kubectl apply -f migrations-job.yaml`, дождаться выполнения команды и удалить Job командой `kubectl delete job django-migrate`
 11. Запустить CrontabJob для очистки сессий командой `kubectl apply -f django-clearsessions.yaml`
